@@ -1,42 +1,186 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.embla {
+  height: 500px;
+  overflow: hidden;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.embla__viewport {
+  height: 100%;
+  overflow: hidden;
+
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.embla__container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 20px;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.embla__slide {
+  position: relative;
+  flex: 0 0 200px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
+.embla__slide:first-child {
+  margin-top: 20px;
+}
+
+
+.embla__Learning {
+ width: 95vw;  /* full page width */
+ height: 350px; /* carousel height */
+ position: relative;
+ margin: 150px auto 60px auto;
+ max-width: 1200px;
+}
+
+.embla__viewport__Learning {
+ width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.embla__container__Learning {
+  display: flex;
+  flex-direction: row; /* horizontal now */
+  gap: 20px;           /* space between slides */
+  height: 100%;
+}
+
+.embla__slide__Learning {
+  position: relative;
+  flex: 0 0 calc((100% - 40px) / 3);
+  border-radius: 12px;
+  overflow: hidden;
+  height: 100%; 
+  border-radius: 12px;
+  scroll-snap-align: start;
+}
+
+.embla__slide__Learning:first-child{
+  margin-left: 20px;
+}
+
+.embla__overlay__Learning {
+  position: absolute;
+  bottom: 0;           /* fix at bottom */
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0)
+  );                    /* optional for text readability */
+  color: white;
+}
+
+.embla__overlay__Learning h3 {
   margin: 0;
+  font-size: 20px;
+  font-weight: 600;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.embla__overlay__Learning p {
+  margin: 4px 0 0;
+  font-size: 14px;
+}
+.embla__progress__Learning {
+  width: 100%;
+  height: 6px;
+  margin-top: 12px;   /* space below images */
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Progress bar fill */
+.embla__progress-bar__Learning {
+  height: 100%;
+  background: #1976d2;
+  width: 0;
+  border-radius: 3px;
+}
+
+
+.embla__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.embla__arrow:hover {
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.embla__arrow--left {
+    top: 10px;
+    left: 88%;
+}
+
+.embla__arrow--right {
+    top: 10px;
+    left: 90%;
+}
+
+@media (max-width: 1024px) {
+  .embla__viewport__Learning {
+    height: 350px;
   }
+  .embla__arrow--left {
+    top: 10px;
+    left: 82%;
+}
+
+.embla__arrow--right {
+    top: 10px;
+    left: 84%;
+}
+}
+
+@media (max-width: 768px) {
+  .embla__viewport__Learning {
+    height: 300px;
+    width: 120vw;
+  }
+  .embla__arrow--left {
+    top: 10px;
+    left: 80%;
+}
+
+.embla__arrow--right {
+    top: 10px;
+    left: 82%;
+}
+}
+
+@media (max-width: 480px) {
+  .embla__viewport__Learning {
+    height: 250px;
+    width: 90vw;
+  }
+  .embla__arrow--left {
+    top: 10px;
+    left: 71%;
+}
+
+.embla__arrow--right {
+    top: 10px;
+    left: 72%;
+}
 }
